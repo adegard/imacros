@@ -13,4 +13,4 @@ https://addons.mozilla.org/it/firefox/addon/imacros-for-firefox/
 
 Imacros codes and examples:
 
-https://gist.github.com/LeCoupa/4d87296efe4266505acb
+https://gist.github.com/dcondrey/0d99183624df61efffff
