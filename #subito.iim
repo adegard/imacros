@@ -1,0 +1,11 @@
+﻿VERSION BUILD=9030808 RECORDER=FX
+TAB T=1
+'URL GOTO=https://www.subito.it/annunci-lombardia-vicino/vendita/offerte-lavoro/?q=badante
+TAG POS=1 TYPE=SPAN ATTR=TXT:Annuncio<SP>successivo
+WAIT SECONDS=1
+TAG POS=1 TYPE=BUTTON ATTR=ID:btn_reply
+TAG POS=1 TYPE=TEXTAREA FORM=NAME:adreply_form ATTR=NAME:body CONTENT=Ciao<SP>,<SP>cerchi<SP>una<SP>badante<SP>?<SP><BR>visita<SP>badante-noproblem.com
+WAIT SECONDS=1
+TAG POS=1 TYPE=INPUT:SUBMIT FORM=NAME:adreply_form ATTR=*
+WAIT SECONDS=1
+TAG POS=1 TYPE=A ATTR=TXT:Ok,<SP>ho<SP>capito

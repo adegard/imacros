@@ -1,0 +1,24 @@
+﻿VERSION BUILD=9030808 RECORDER=FX
+TAB CLOSEALLOTHERS
+SET !ERRORIGNORE YES
+TAB T=1
+SET !VAR1 https://www.kijiji.it/annunci-milano/colf/?entryPoint=sb
+SET !VAR2 rossp@carbtc.net
+' Start at line 1 
+SET !LOOP 7
+' Increase the current position in the file with each loop 
+SET !VAR3 {{!LOOP}} 
+URL GOTO={{!VAR1}}
+WAIT SECONDS=4
+TAG POS={{!VAR3}}  TYPE=H4 ATTR=TXT:Contatta<SP>l'utente
+WAIT SECONDS=3
+TAG POS=1 TYPE=INPUT:TEXT FORM=ID:reply-form ATTR=NAME:name CONTENT=Paolo
+TAG POS=1 TYPE=INPUT:EMAIL FORM=ID:reply-form ATTR=NAME:email CONTENT={{!VAR2}} 
+TAG POS=1 TYPE=TEXTAREA FORM=ID:reply-form ATTR=NAME:message CONTENT=Ciao,<SP>se<SP>cerca<SP>una<SP>colf,<SP>le<SP>consiglia<SP>il<SP>sito<SP>colfebadante.com<BR>Buona<SP>fortuna
+TAG POS=1 TYPE=DIV ATTR=CLASS:checkbox__control&&TXT:
+TAG POS=1 TYPE=INPUT:CHECKBOX FORM=ID:reply-form ATTR=NAME:privacy2 CONTENT=YES
+TAG POS=2 TYPE=DIV ATTR=CLASS:checkbox__control&&TXT:
+TAG POS=1 TYPE=INPUT:CHECKBOX FORM=ID:reply-form ATTR=NAME:privacy3 CONTENT=YES
+TAG POS=1 TYPE=INPUT:SUBMIT FORM=ID:reply-form ATTR=*
+WAIT SECONDS=4
+
