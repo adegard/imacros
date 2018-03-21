@@ -1,14 +1,14 @@
-﻿VERSION BUILD=9030808 RECORDER=FX
+VERSION BUILD=9030808 RECORDER=FX
 TAB CLOSEALLOTHERS
 SET !ERRORIGNORE YES
 TAB T=1
 'https://www.kijiji.it/annunci-como/assistenza+anziani/?entryPoint=sb
 'https://www.kijiji.it/badante/?entryPoint=sb
 'Ciao,<SP>se<SP>cerca<SP>badante,<SP>le<SP>consiglio<SP>il<SP>sito<SP>badante-noproblem.com<BR>Buona<SP>fortuna
-SET !VAR1 https://www.kijiji.it/annunci-milano/assistenza+anziani/?entryPoint=sb
-SET !VAR2 roossi@1webmail.info
+SET !VAR1 https://www.kijiji.it/offerte-di-lavoro/offerta/annunci-bologna/badante/?entryPoint=sb
+SET !VAR2 rossipaolo@eth2btc.info
 ' Start at line 1 
-SET !LOOP 4
+SET !LOOP 2
 ' Increase the current position in the file with each loop 
 SET !VAR3 {{!LOOP}} 
 URL GOTO={{!VAR1}}
@@ -17,7 +17,7 @@ TAG POS={{!VAR3}}  TYPE=H4 ATTR=TXT:Contatta<SP>l'utente
 WAIT SECONDS=3
 TAG POS=1 TYPE=INPUT:TEXT FORM=ID:reply-form ATTR=NAME:name CONTENT=Paolo
 TAG POS=1 TYPE=INPUT:EMAIL FORM=ID:reply-form ATTR=NAME:email CONTENT={{!VAR2}} 
-TAG POS=1 TYPE=TEXTAREA FORM=ID:reply-form ATTR=NAME:message CONTENT=Ciao,<SP>se<SP>cerca<SP>badante,<SP>le<SP>consiglio<SP>il<SP>sito<SP>badante-noproblem.com<BR>Buona<SP>serata
+TAG POS=1 TYPE=TEXTAREA FORM=ID:reply-form ATTR=NAME:message CONTENT=Ciao,<SP>se<SP>cerca<SP>badante,<SP>le<SP>consiglio<SP>il<SP>sito<SP>badante-noproblem.com<BR>Buona<SP>giornata
 TAG POS=1 TYPE=DIV ATTR=CLASS:checkbox__control&&TXT:
 TAG POS=1 TYPE=INPUT:CHECKBOX FORM=ID:reply-form ATTR=NAME:privacy2 CONTENT=YES
 TAG POS=2 TYPE=DIV ATTR=CLASS:checkbox__control&&TXT:
