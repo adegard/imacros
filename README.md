@@ -16,6 +16,12 @@ Imacros codes and examples:
 https://gist.github.com/dcondrey/0d99183624df61efffff
 
 
-LAUNCH FROM BATCH:
+TO LAUNCH FROM BATCH:
 
- start "" "C:\Program Files\Mozilla Firefox\firefox.exe"   imacros://run/?m=XXXX.iim
+start "" "C:\Program Files\Mozilla Firefox\firefox.exe"  http://www.google.com
+ ping 127.1.1.1 (or pause or sleep ... it is just to cause a small delay)
+
+ 
+ start /B "" "C:\Program Files\Mozilla Firefox\firefox.exe"   imacros://run/?m=#kijiji_programatore.js
+
+timeout /t 60
