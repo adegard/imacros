@@ -5,7 +5,7 @@ var macro, i;
 
 macro =  "CODE:";
 macro +=  "VERSION BUILD=9030808 RECORDER=FX" + "\n";
-macro +=  "TAB CLOSEALLOTHERS" + "\n";
+//macro +=  "TAB CLOSEALLOTHERS" + "\n";
 macro +=  "SET !ERRORIGNORE YES" + "\n";
 macro +=  "TAB T=1" + "\n";
 macro +=  "SET !VAR1 https://www.kijiji.it/offerte-di-lavoro/offerta/annunci-roma/badante/?entryPoint=sb" + "\n";
@@ -14,7 +14,7 @@ macro +=  "' Start at line 1 " + "\n";
 macro +=  "SET !LOOP 2" + "\n";
 macro +=  "' Increase the current position in the file with each loop " + "\n";
 
-for (i = 4; i <= 7; i++) {
+for (i = 2; i <= 12; i++) {
 
 	macro +=  "URL GOTO={{!VAR1}}" + "\n";
 	macro +=  "WAIT SECONDS=3" + "\n";
@@ -30,11 +30,11 @@ for (i = 4; i <= 7; i++) {
 	macro +=  "TAG POS=1 TYPE=INPUT:CHECKBOX FORM=ID:reply-form ATTR=NAME:privacy3 CONTENT=YES" + "\n";
 	macro +=  "TAG POS=1 TYPE=INPUT:SUBMIT FORM=ID:reply-form ATTR=*" + "\n";
 	macro +=  "WAIT SECONDS=3" + "\n";
-
+iimDisplay("iMacro is now running. " + "LOOP=" + i);
   }
   
 //  Run The Macro
 
 
-iimDisplay("iMacro is now running. Let's hack growth.");
+
 iimPlay(macro)
