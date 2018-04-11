@@ -7,11 +7,10 @@
 //  Variables Initialization
 
 
-
 var macro, i, j;
 
 
-
+//se vuoi utilizzare proxy per nascondere la tua connessione:
 unic=''; //'80.211.4.187:8080';
 
 var proxy = [];
@@ -28,7 +27,7 @@ proxy[4] = unic;
 
 
 
-//Lista di ricerche Kijiji
+//Lista di ricerche Kijiji: (copia l'indirizzo delle singole pagine di ricerche)
 
 var lurl = [];
 
@@ -44,7 +43,7 @@ lurl[4] = "https://www.kijiji.it/offerte-di-lavoro/cerco-lavoro-servizi/annunci-
 
 
 
-//risposte ai post kijiji
+//risposte ai post kijiji (scrivi il tuo messaggi : spazi separati da <SP>)
 
 var ltext = [];
 
@@ -60,7 +59,7 @@ ltext[4] = "Ciao,<SP>cerchiamo<SP>freelance<SP>sviluppatori.<SP>iscriviti<SP>su<
 
 
 
-//email temporanee da utilizzare come risposte ad ogni categoria di post
+//inserisce la tua email da utilizzare per le risposte (oppure email temporanee) ad ogni categoria di post
 
 var lmail = [];
 
@@ -80,21 +79,17 @@ lmail[4] = "36c7h@mailtrix.net";
 
    macro +=  "VERSION BUILD=9030808 RECORDER=FX" + "\n";
 
-
-
    macro +=  "SET !ERRORIGNORE YES" + "\n";
 
    macro +=  "TAB T=1" + "\n";
 
-   
+ 
 
-
-
-//passa ogni categoria di post
+//passa ogni categoria di post una a una
 
 for (j = 0; j <= 4; j++) {
 
- 
+
 
    if (proxy !== "") {
 
@@ -112,21 +107,15 @@ for (j = 0; j <= 4; j++) {
 
    macro +=  "SET !LOOP 2" + "\n";
 
-   //macro +=  "' Increase the current position in the file with each loop " + "\n";
 
-
-
-   //  Risponde ad ogni post : impostare qui il numero di post a cui rispondere
+   //  Risponde ad ogni post in lista : impostare  il numero max. di post a cui rispondere (qui è 15)
 
    for (i = 1; i <= 15; i++) {
-
 
 
     macro +=  "URL GOTO={{!VAR1}}" + "\n";
 
     macro +=  "WAIT SECONDS=3" + "\n";
-
-    
 
     macro +=  "TAG POS=" + i + "  TYPE=H4 ATTR=TXT:Contatta<SP>l'utente" + "\n";
 
@@ -154,14 +143,9 @@ for (j = 0; j <= 4; j++) {
 
 }     
 
-  
-
+ 
 //  Run The Macro
 
-
-
 iimDisplay("iMacro is now running. ");
-
-
 
 iimPlay(macro)
