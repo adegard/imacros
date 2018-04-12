@@ -19,12 +19,12 @@ TMI=1000
 i = 1
 X=""
 ok=""
-Text:="|<>*190$17.0Q00s01M0DE0ys10s30k61U6D0Dw000000U"  ;update this row with your image found with TextFinder
+Text:="|<>*190$17.0Q00s01M0DE0ys10s30k61U6D0Dw000000U"
 
 
 Sleep, TMI
 
-Loop, 10	;number of iterations
+Loop, 30	;number of iterations
 {
    ok:=FindText(482, 440, 150000, 150000, 0, 0, Text) ;0, 0, 150000, 150000, 0, 0, Text)
   CoordMode, Mouse
@@ -38,14 +38,13 @@ Loop, 10	;number of iterations
 		Sleep, TMI*2
 		X=""
 		ok=""
-	
 
 		Loop 20
 		Click, WheelDown
     }
 	Loop 20
 	Click, WheelDown
-	Sleep, TMI
+	Sleep, TMI*3
 }
 
 
