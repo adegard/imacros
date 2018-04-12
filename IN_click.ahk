@@ -17,7 +17,7 @@ TMI=1000
 i = 1
 X=""
 ok=""
-Text:="|<>*190$17.0Q00s01M0DE0ys10s30k61U6D0Dw000000U"
+Text:="|<>*190$17.0Q00s01M0DE0ys10s30k61U6D0Dw000000U"  ;update this row with your image found with TextFinder
 
 
 Sleep, TMI
@@ -36,7 +36,7 @@ Loop, 10	;number of iterations
 		Sleep, TMI*2
 		X=""
 		ok=""
-		Text:="|<>*190$17.0Q00s01M0DE0ys10s30k61U6D0Dw000000U"		
+	
 
 		Loop 20
 		Click, WheelDown
