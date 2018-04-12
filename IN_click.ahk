@@ -1,3 +1,5 @@
+;http://simplestipsandtricks.blogspot.it/2018/04/automatizzare-il-click-su-consiglia.html
+;from Arnaud DEGADRIN
 
 t1:=A_TickCount
 
