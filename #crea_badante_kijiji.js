@@ -6,7 +6,7 @@ var macro, j;
 var lcita = [];
 lcita[0] = "limbiate";
 lcita[1] = "cesate";
-lcita[2] = "cesate";
+lcita[2] = "milano";
 
 //inserisci titoli diversi ogni volta
 var ltitle = [];
