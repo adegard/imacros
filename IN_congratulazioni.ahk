@@ -13,46 +13,89 @@ Gui, Add, Text, vMyText cLime, Start linkedin...  ; XX & YY serve to auto-size t
 WinSet, TransColor, %CustomColor% 150
 Gui, Show, x200 y400 NoActivate  ; NoActivate avoids deactivating the currently active window.
 
-Sleep, 1000
+Sleep, 2000
 
-TMI=500
+TMI=1000
 i = 1
 X=""
 ok=""
-Text:="|<>*187$71.00000000000000000000000000000000000000000000000000000000000DzzzzzzzzzzkE0000000000UU0000000001100000000002200000000004401s3M002M0880606k00400EE087hbDjRU0UU0kNPGH2H01101UXqzaQa0220117h3B9A044033/O6OGM08803narbrak0EE0000010000UU00000S00011000000000022000000000047zzzzzzzzzzs000000000000000000000001"
+
+;Congratulazioni
+Text:="|<>*190$71.zzzzzzzzzzzy000000000000000000000000000000000000000000000000000000000000000000000000000000000007U0000002000t000002040H1U000004081U20wyDbSSWHrgA3BanA6F4UqM84/B6EwW97gkE8KOAWN4GHNUtNgqN4mBZaH0ySNbmDbT9wq00001U0000000000300000000000w0000002"
+
+;buon compleanno
+Textc:="|<>*192$71.000000000001zzzzzzzzzzzw000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020AUk000000040N1U000000000k3001taTNjEDY7nA0PBanMUn8AqM7qOBal1aEMgk9goPBW2AUlNUnNgqP46N1an0yTDbq87m3sy000300000000001A00000000003k0000000000000000000000000000000000000000000zzzzzzzzzzzz"
 
 
+;invia
 
+Text1:="|<>*195$71.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000M02000000000k00000000001jcdk00000003NPEk00000006mobU0000000BYdH00000000P9ma00000000qH5w00000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000080U"
+
+
+;chiudi
+Text2:="|<>*217$65.0000000080000000000E0000000000U00000000010000000000200000000004000000000080000000000E0000000000U0000008E010000000tk020000000z004000nA00w008001aM01s00E0000007s00U000000Qs010000000EU0200000000004000000000080000000000E0000000000U000000000100000000002000000000040000000000801"
 
 Sleep, TMI
-	Loop, 10	;number of iterations
-	{
-		Loop, 11	;number of iterations
+
+Loop, 10	;number of iterations
+{
+   ok:=FindText(0, 0, 150000, 150000, 0, 0, Text) ;0, 0, 150000, 150000, 0, 0, Text)
+  CoordMode, Mouse
+  X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+  
+  
+		if(X="")
 		{
-		   ok:=FindText(0, 0, 150000, 150000, 0, 0, Text) ;0, 0, 150000, 150000, 0, 0, Text)
+		  ok:=FindText(0, 0, 150000, 150000, 0, 0, Textc) ;0, 0, 150000, 150000, 0, 0, Textc)
 		  CoordMode, Mouse
 		  X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
-		  ;
-
-			if(X<>"")
-			{
-				;Appeared = Appeared+1
-				Click, %X%, %Y%
-				Sleep, TMI
-				X=""
-				ok=""
-				MouseMove, 20, 30, 50, R
-
-				;Loop 2
-				;Click, WheelDown
-			}
-			;Loop 2
-			;Click, WheelDown
-			Sleep, TMI
 		}
-	send, {F5} 
-	Sleep, TMI*6
-	}
+	
+	
+	if(X<>"")
+    {
+		;Appeared = Appeared+1
+		Click, %X%, %Y%
+		X=""
+		ok=""
+		Sleep, TMI
+
+		;send enter
+		send, {enter} 
+		Sleep, TMI
+		
+		;click su invia
+		ok:=FindText(0, 0, 150000, 150000, 0, 0, Text1) ;0, 0, 150000, 150000, 0, 0, Text1)
+		 CoordMode, Mouse
+		 X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+		 
+		Click, %X%, %Y%
+		Sleep, TMI
+		X=""
+		ok=""
+		
+		
+		
+		Sleep, TMI
+		
+			 ok:=FindText(0, 0, 150000, 150000, 0, 0, Text2) ;0, 0, 150000, 150000, 0, 0, Text2)
+			 CoordMode, Mouse
+			 X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+			 
+			Click, %X%, %Y%
+			Sleep, TMI
+			X=""
+			ok=""
+		
+		
+
+		}
+	Loop 7
+	Click, WheelDown
+	Sleep, TMI
+	
+}
+
 
 Gui, cancel
 

@@ -19,8 +19,7 @@ TMI=500
 i = 1
 X=""
 ok=""
-Text:="|<>*187$71.00000000000000000000000000000000000000000000000000000000000DzzzzzzzzzzkE0000000000UU0000000001100000000002200000000004401s3M002M0880606k00400EE087hbDjRU0UU0kNPGH2H01101UXqzaQa0220117h3B9A044033/O6OGM08803narbrak0EE0000010000UU00000S00011000000000022000000000047zzzzzzzzzzs000000000000000000000001"
-
+Text:="|<>*188$71.3zzzzzzzzzz07zzzzzzzzzy0Dzzzzzzzzzw0Tzzzzzzzzzs0zzzzzzzzzzk1zzzzzzzzzzU3zzzzzzzzzz07zz1zzzzbzy0Dzw3zzzyDzw0Tztzzzzzzzs0zzly70X8zzk1zzUs416FzzU3zzkX1mAXzz07zzs03YN7zy0DzzkDb8mDzw0Tzs490E4Tzs0zzkQ30k8zzk1zzzzztzzzzU3zzzzt3zzzz07zzzzkDzzzy0Dzzzzzzzzzw0Tzzzzzzzzzs0zzzzzzzzzzk1zzzzzzzzzzU1zzzzzzzzzy1"
 
 
 
@@ -41,17 +40,24 @@ Sleep, TMI
 				Sleep, TMI
 				X=""
 				ok=""
-				MouseMove, 20, 30, 50, R
 
 				;Loop 2
 				;Click, WheelDown
 			}
-			;Loop 2
-			;Click, WheelDown
-			Sleep, TMI
+			;mydelay=Math.round(3*Math.random())
+			Sleep, TMI*1
+			
+			if(X="")
+			{
+				Loop 3
+				Click, WheelDown
+				Sleep, TMI*1
+			}
+			
 		}
-	send, {F5} 
-	Sleep, TMI*6
+	Loop 5
+	Click, WheelDown
+	Sleep, TMI*1
 	}
 
 Gui, cancel

@@ -1,5 +1,5 @@
 ;http://simplestipsandtricks.blogspot.it/2018/04/automatizzare-il-click-su-consiglia.html
-
+;from Arnaud DEGADRIN
 
 t1:=A_TickCount
 
@@ -11,48 +11,58 @@ Gui, Color, %CustomColor%
 Gui, Font, s32  ; Set a large font size (32-point).
 Gui, Add, Text, vMyText cLime, Start linkedin...  ; XX & YY serve to auto-size the window.
 WinSet, TransColor, %CustomColor% 150
-Gui, Show, x200 y400 NoActivate  ; NoActivate avoids deactivating the currently active window.
+Gui, Show, x100 y400 NoActivate  ; NoActivate avoids deactivating the currently active window.
 
-Sleep, 1000
+Sleep, 2000
 
-TMI=500
+TMI=700
 i = 1
 X=""
 ok=""
-Text:="|<>*187$71.00000000000000000000000000000000000000000000000000000000000DzzzzzzzzzzkE0000000000UU0000000001100000000002200000000004401s3M002M0880606k00400EE087hbDjRU0UU0kNPGH2H01101UXqzaQa0220117h3B9A044033/O6OGM08803narbrak0EE0000010000UU00000S00011000000000022000000000047zzzzzzzzzzs000000000000000000000001"
+Text:="|<>*158$24.3s7k7yTsC7sQQ3kCM1U6k1U3k003k003k003s007M006Q00CC00Q700s3U1k1k3U0s700QC00Dw003k001U0U"
 
 
 
+;risolution chrome 80%
 
 Sleep, TMI
-	Loop, 10	;number of iterations
+
+Loop, 40	;number of iterations
+{
+/*
+	Loop
 	{
-		Loop, 11	;number of iterations
-		{
-		   ok:=FindText(0, 0, 150000, 150000, 0, 0, Text) ;0, 0, 150000, 150000, 0, 0, Text)
-		  CoordMode, Mouse
-		  X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
-		  ;
-
-			if(X<>"")
-			{
-				;Appeared = Appeared+1
-				Click, %X%, %Y%
-				Sleep, TMI
-				X=""
-				ok=""
-				MouseMove, 20, 30, 50, R
-
-				;Loop 2
-				;Click, WheelDown
-			}
-			;Loop 2
-			;Click, WheelDown
-			Sleep, TMI
-		}
-	send, {F5} 
-	Sleep, TMI*6
+		CoordMode, Pixel, Window
+		ImageSearch, X, X, 347, 142, 578, 763, C:\Users\degar_000\AppData\Roaming\MacroCreator\Screenshots\Screen_20180415174608.png
+		CenterImgSrchCoords("C:\Users\degar_000\AppData\Roaming\MacroCreator\Screenshots\Screen_20180415174608.png", X, X)
+		If ErrorLevel = 0
+			;Click, %X%, %X% Left, 1
 	}
+	Until ErrorLevel = 0
+*/	
+   ok:=FindText(468, 489, 150000, 150000, 0, 0, Text) 
+  CoordMode, Mouse
+  X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+  ;
+	if(X<>"")
+    {
+		Sleep, TMI
+		Click, %X%, %Y%
+		Sleep, TMI*2
+		X=""
+		ok=""
+
+		Loop 10
+		Click, WheelDown
+    }
+	Loop 5
+	Click, WheelUp
+	Sleep, TMI
+	Loop 10
+	Click, WheelDown
+	Sleep, TMI*3
+}
+
 
 Gui, cancel
 

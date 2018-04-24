@@ -1,5 +1,5 @@
 ;http://simplestipsandtricks.blogspot.it/2018/04/automatizzare-il-click-su-consiglia.html
-
+;https://www.linkedin.com/mynetwork/invite-connect/connections/
 
 t1:=A_TickCount
 
@@ -12,47 +12,107 @@ Gui, Font, s32  ; Set a large font size (32-point).
 Gui, Add, Text, vMyText cLime, Start linkedin...  ; XX & YY serve to auto-size the window.
 WinSet, TransColor, %CustomColor% 150
 Gui, Show, x200 y400 NoActivate  ; NoActivate avoids deactivating the currently active window.
-
 Sleep, 1000
-
-TMI=500
+TMI=1000
 i = 1
 X=""
 ok=""
-Text:="|<>*187$71.00000000000000000000000000000000000000000000000000000000000DzzzzzzzzzzkE0000000000UU0000000001100000000002200000000004401s3M002M0880606k00400EE087hbDjRU0UU0kNPGH2H01101UXqzaQa0220117h3B9A044033/O6OGM08803narbrak0EE0000010000UU00000S00011000000000022000000000047zzzzzzzzzzs000000000000000000000001"
+
+/*
+;select page adress:
+	Textad:="|<>*200$71.0010000000000020000000000040000000000081U00000EU00E30lU001V000U61X00022S010Dbz/Xq49W020NaANYAEG6040lAMV80V4A081WMl2A128M0E34lW4444MU0U69X6O/8ES010AFnDXqUU0020000E01300040000U024000800010000000000000000000000000000000000000000000000000000000000000007zzzzzzzzzzzk00000000000000000000000000000000001"
+	ok:=FindText(0, 0, 150000, 150000, 0, 0, Textad) ;0, 0, 150000, 150000, 0, 0, Textad)
+	CoordMode, Mouse
+	X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+	Click, %X%, %Y%
+	X=""
+	ok=""
+	Send, https://www.linkedin.com/mynetwork/invite-connect/connections/
+	send, {enter} 
+Sleep, 4000
+*/
+
+;Message
+Text:="|<>*182$71.0000000000000000000000E03U00000000U0700000000008S0000000000EwD3lswDMvADVMnAaHQvniMvan6E80NXgAn39bwsQ7n3MNa3nA0QCNa6knA7aM0MBXARVaM6ARYmPiRtzARAMSD7XgSlqMS000000010A00000000060M000000006wHU000000007Uy0000000000000000000000000000000000000000000000000000000000000DzzzzzzzzzzzU00000000000000000000001"
 
 
+;casella
+Textscrivi:="|<>*158$71.zzz000000001zzy000000003zzw000000007zzs00000000Dzzk00000000TzzU00000000zzz000000001zzy000000003zzw00s000007zzs00000000Dzzk043W0003TzzU04000000zzz002000001zzy000000003zzw000000007zzs03lk1030Dzzk00000000TzzU00000000zzz000000001zzy000000003zzw000000007zzs00000000Dzzk00000000TzzU00000000zzz000000001"
 
+;invia
+Text1:="|<>*168$71.00000000001y00000000003w00000000007s0000000000Dk0000000000TU0000000000z00000000001y000U00U0003w00100000007s002TAKS000Dk004nMg6000TU009WGMA000z000H4Yls001y000a8dYk003w001AFXNU007s002MX6T000Dk0000000000TU0000000000z00000000001y00000000003w00000000007s0000000000Dk0000000000TU0000000000z00000000001z"
 
+;chiudi
+Text2:="|<>*162$71.0000000000Dy0000000000Tw0000000000zs0000000001zk0000000003zU0000000007z00000U1000Dy00001U6000Tw00001UM000zs00001VU001zk00001a0003zU00001s0007z000001U000Dy000007U000Tw00000NU000zs00001VU001zk000061U003zU0000M1U007z00000U1000Dy0000000000Tw0000000000zs0000000001zk0000000003zU0000000007z0000000000Dz"
+
+	
 Sleep, TMI
-	Loop, 10	;number of iterations
-	{
-		Loop, 11	;number of iterations
+
+Loop, 10	;number of iterations
+{
+	
+	ok:=FindText(797, 180, 150000, 200, 0, 0, Text) 
+	CoordMode, Mouse
+	X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+	
+	/*
+		Loop
 		{
-		   ok:=FindText(0, 0, 150000, 150000, 0, 0, Text) ;0, 0, 150000, 150000, 0, 0, Text)
-		  CoordMode, Mouse
-		  X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
-		  ;
-
-			if(X<>"")
-			{
-				;Appeared = Appeared+1
-				Click, %X%, %Y%
-				Sleep, TMI
-				X=""
-				ok=""
-				MouseMove, 20, 30, 50, R
-
-				;Loop 2
-				;Click, WheelDown
-			}
-			;Loop 2
-			;Click, WheelDown
+			CoordMode, Pixel, Window
+			ImageSearch, X, Y, 568, 143, 855, 254, C:\Users\degar_000\AppData\Roaming\MacroCreator\Screenshots\Screen_20180414115351.png
+			If ErrorLevel = 0
+				;Click, %X%, %Y% Left, 1
+		}
+		Until ErrorLevel = 0
+	*/
+		if(X=0)
+		{
+			Loop 1
+			Click, WheelDown
 			Sleep, TMI
 		}
-	send, {F5} 
-	Sleep, TMI*6
-	}
+
+		if(X<>"")
+		{
+				Click, %X%, %Y% Left, 1
+			X=""
+			ok=""
+			Sleep, TMI
+
+			;casella scrivi
+			ok:=FindText(0, 0, 150000, 150000, 0, 0, Textscrivi) ;0, 0, 150000, 150000, 0, 0, Textscrivi)
+			CoordMode, Mouse
+			X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+			Click, %X%, %Y%
+			X=""
+			ok=""
+			Sleep, TMI	
+			
+			
+			;send enter
+			Send, Buongiorno, la ringrazio per avermi accettato il collegamento. Ho visto il suo profilo e mi sono incuriosito. Se le posso essere utile mi contatti pure
+			send, {enter} 
+			Sleep, TMI
+			
+			;click su invia
+			ok:=FindText(0, 0, 150000, 150000, 0, 0, Text1) ;0, 0, 150000, 150000, 0, 0, Text1)
+			 CoordMode, Mouse
+			 X:=ok.1.1, Y:=ok.1.2, W:=ok.1.3, H:=ok.1.4, Comment:=ok.1.5, X+=W//2, Y+=H//2
+			 
+			Click, %X%, %Y%
+			Sleep, TMI
+			X=""
+			ok=""
+		
+			Sleep, TMI
+
+		}
+			Loop 1
+			Click, WheelDown
+			;Click, {Down}
+			Sleep, TMI*2
+}
+
 
 Gui, cancel
 
